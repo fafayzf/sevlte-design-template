@@ -1,6 +1,6 @@
 ## create-svelte-design-template
 
-Backend template based on [**svelte-design-ui**](https://github.com/fafayzf/svelte-design-ui)
+Management system template based on [**svelte-design-ui**](https://github.com/fafayzf/svelte-design-ui)
 
 
 ### Recommended Use
@@ -8,6 +8,8 @@ Backend template based on [**svelte-design-ui**](https://github.com/fafayzf/svel
 This is a clean package
 ```sh
 npm create svelte-design-template
+# or custom name
+npm create svelte-design-template my-project
 ```
 
 or
