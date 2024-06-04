@@ -1,6 +1,8 @@
 <script>
-	import Header from './Header.svelte';
+	import Header from '../components/container/ContainerHeader.svelte';
+  import ContainerFooter from '../components/container/ContainerFooter.svelte';
 	import './styles.css';
+  import '../app.css';
 </script>
 
 <div class="app">
@@ -9,10 +11,7 @@
 	<main>
 		<slot />
 	</main>
-
-	<footer>
-		<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-	</footer>
+  <ContainerFooter />
 </div>
 
 <style>
@@ -31,23 +30,5 @@
 		max-width: 64rem;
 		margin: 0 auto;
 		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 12px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 12px 0;
-		}
 	}
 </style>

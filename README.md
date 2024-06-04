@@ -1,6 +1,6 @@
 ## create-svelte-design-template
 
-Management system template based on [**svelte-design-ui**](https://github.com/fafayzf/svelte-design-ui)
+Management system template based on [**melt-ui**](https://github.com/melt-ui/melt-ui)
 
 
 ### Recommended Use

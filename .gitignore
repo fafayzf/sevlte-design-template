@@ -13,3 +13,5 @@ vite.config.ts.timestamp-*
 pnpm-lock.yaml
 yarn.lock
 package-lock.json
+
+.history
