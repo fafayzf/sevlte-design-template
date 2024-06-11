@@ -1,3 +1,4 @@
+import { resolve } from 'path'
 import adapter from '@sveltejs/adapter-auto'
 import { vitePreprocess } from '@sveltejs/kit/vite'
 
@@ -16,7 +17,19 @@ const config = {
 		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
 		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
+		adapter: adapter(),
+    alias: {
+      '$components': resolve('./src/components'),
+      '$utils': resolve('./src/utils'),
+      '$routes': resolve('./src/routes'),
+      '$store': resolve('./src/store')
+    },
+    files: {
+      hooks: {
+        client: 'src/hooks/client',
+        server: 'src/hooks/server',
+      }
+    }
 	}
 }
 
