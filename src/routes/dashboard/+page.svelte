@@ -2,7 +2,7 @@
   import { melt } from '@melt-ui/svelte'
   import { createButton } from '$lib/components/builders/button'
   import { useToken } from 'src/store/userStore'
-  import { goto } from '$app/navigation';
+  import { goto } from '$app/navigation'
 
   const {
     elements: { button }
