@@ -1,7 +1,6 @@
 import { writable } from 'svelte/store'
 import { getToken, setToken, removeToken } from 'src/utils/auth'
 
-
 export function useToken() {
   const token = writable(getToken())
 

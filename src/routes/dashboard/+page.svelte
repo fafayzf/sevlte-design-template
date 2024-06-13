@@ -14,5 +14,6 @@
     goto('/login')
   }
 </script>
+
 <div>dashboard</div>
 <button use:melt={$button} on:click={handleClick}>clear token</button>

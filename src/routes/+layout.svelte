@@ -23,7 +23,6 @@
   })
 
   hasRoutePermission()
-
 </script>
 
 <Container>

@@ -6,8 +6,8 @@ import {
 } from '@melt-ui/svelte/internal/helpers'
 
 import type { CreateButtonProps } from './type'
-import type { Defaults } from '@melt-ui/svelte/internal/types';
-import { writable } from 'svelte/store';
+import type { Defaults } from '@melt-ui/svelte/internal/types'
+import { writable } from 'svelte/store'
 
 const prefix = 'button';
 const { name } = createElHelpers(prefix)
