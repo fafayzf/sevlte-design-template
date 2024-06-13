@@ -9,7 +9,7 @@ import type { CreateButtonProps } from './type'
 import type { Defaults } from '@melt-ui/svelte/internal/types'
 import { writable } from 'svelte/store'
 
-const prefix = 'button';
+const prefix = 'button'
 const { name } = createElHelpers(prefix)
 
 const defaults = {
@@ -26,6 +26,7 @@ export const createButton = (props?: CreateButtonProps) => {
 			} as const),
   })
   const options = toWritableStores(omit(withDefaults))
+
   return {
     elements: {
       button
