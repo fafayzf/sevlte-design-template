@@ -3,19 +3,16 @@
   import { createButton } from '$lib/components/builders/button'
   import { useToken } from 'src/store/userStore'
   import { goto } from '$app/navigation';
+
   const {
     elements: { button }
   } = createButton()
 
-  function onLogin() {
+  function handleClick() {
     const { token } = useToken()
-    token.set('token')
-    goto('/dashboard')
+    token.update(() => '')
+    goto('/login')
   }
 </script>
-
-<form action="#">
-  <input type="text" />
-  <input type="password" />
-  <button use:melt={$button} on:click={onLogin}>LOGIN</button>
-</form>
+<div>dashboard</div>
+<button use:melt={$button} on:click={handleClick}>clear token</button>

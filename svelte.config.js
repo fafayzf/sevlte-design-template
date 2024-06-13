@@ -1,6 +1,6 @@
 import { resolve } from 'path'
 import adapter from '@sveltejs/adapter-auto'
-import { vitePreprocess } from '@sveltejs/kit/vite'
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 import { preprocessMeltUI, sequence } from '@melt-ui/pp'
 
@@ -19,16 +19,7 @@ const config = {
 		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
 		adapter: adapter(),
     alias: {
-      '$components': resolve('./src/components'),
-      '$utils': resolve('./src/utils'),
-      '$routes': resolve('./src/routes'),
-      '$store': resolve('./src/store')
-    },
-    files: {
-      hooks: {
-        client: 'src/hooks/client',
-        server: 'src/hooks/server',
-      }
+      'src': resolve('./src')
     }
 	}
 }
