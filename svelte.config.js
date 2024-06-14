@@ -1,5 +1,5 @@
 import { resolve } from 'path'
-import adapter from '@sveltejs/adapter-auto'
+import adapter from '@sveltejs/adapter-vercel'
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte'
 
 import { preprocessMeltUI, sequence } from '@melt-ui/pp'
@@ -21,7 +21,7 @@ const config = {
     alias: {
       'src': resolve('./src')
     }
-	}
+	},
 }
 
 export default config
