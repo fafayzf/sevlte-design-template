@@ -10,7 +10,9 @@ export type CreateButtonProps = {
   /**
    * button types
    */
-  type?: Writable<ButtonTypes>
+  type?: Writable<ButtonTypes>,
+
+  disabled?: boolean
 }
 
 export type Button = BuilderReturn<typeof createButton>

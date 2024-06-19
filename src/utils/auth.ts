@@ -4,10 +4,7 @@ export function getToken() {
   return localStorage.getItem(AUTH_TOKEN)
 }
 
-/**
- * @param {string} token
- */
-export function setToken(token) {
+export function setToken(token: string) {
   localStorage.setItem(AUTH_TOKEN, token)
 }
 

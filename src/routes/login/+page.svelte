@@ -1,11 +1,7 @@
 <script>
-  import { melt } from '@melt-ui/svelte'
-  import { createButton } from '$lib/components/builders/button'
-  import { useToken } from 'src/store/userStore'
+  import MButton from '$lib/components/melt-ui/MButton.svelte'
+  import { useToken } from '$src/store/userStore'
   import { goto } from '$app/navigation';
-  const {
-    elements: { button }
-  } = createButton()
 
   function onLogin() {
     const { token } = useToken()
@@ -25,14 +21,10 @@
       type="password"
       class="input"
     />
-    <button
-      use:melt={$button}
-      on:click={onLogin}
-      class="inline-flex w-full h-9 items-center justify-center rounded-md bg-black px-4 py-2 mt-4
-      font-medium leading-none text-magnum-300 shadow-lg hover:opacity-75"
-    >LOGIN</button>
+    <MButton on:click={onLogin}>LOGIN IN</MButton>
   </form>
 </div>
+
 <style>
   .input {
     @apply inline-flex h-9 mb-3 w-full items-center justify-center rounded-sm border border-solid px-3 leading-none text-black

@@ -1,10 +1,10 @@
 import { writable } from 'svelte/store'
-import { getToken, setToken, removeToken } from 'src/utils/auth'
+import { getToken, setToken, removeToken } from '$src/utils/auth'
 
 export function useToken() {
   const token = writable(getToken())
 
-  token.subscribe((value) => {
+  const unsub = token.subscribe((value) => {
     if (value) {
       setToken(value)
     } else {
@@ -13,18 +13,20 @@ export function useToken() {
   })
 
   return {
-    token
+    token,
+    destory: unsub
   }
 }
 
 export function useUserInfo() {
   const userInfo = writable(null)
 
-  userInfo.subscribe((value) => {
+  const unsub = userInfo.subscribe((value) => {
     console.log(value)
   })
 
   return {
-    userInfo
+    userInfo,
+    destory: unsub
   }
 }

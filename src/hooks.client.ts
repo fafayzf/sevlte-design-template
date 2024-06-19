@@ -1,8 +1,7 @@
 import { beforeNavigate, goto } from '$app/navigation'
 import { getToken } from './utils/auth'
 
-/** @type {import('@sveltejs/kit').HandleClientError} */
-export async function handleError({ error, event }) {
+export async function handleError({ error, event }: any) {
   console.log(error, event);
   return {
     message: 'Error Page',
