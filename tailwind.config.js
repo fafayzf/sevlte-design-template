@@ -27,7 +27,12 @@ export default {
           '800': '#964516',
           '900': '#793a15',
           '950': '#411c09'
-        }
+        },
+        primary: '#eab308',
+        success: '#22c55e',
+        danger: '#ef4444',
+        info: '#64748b',
+        warning: '#facc15'
       },
       fontFamily: {
         sans: [

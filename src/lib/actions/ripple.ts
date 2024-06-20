@@ -296,11 +296,7 @@ function focusRippleHide (e: FocusEvent) {
 
 const stopSymbol = Symbol('rippleStop')
 
-/**
- *
- * @param {(MouseEvent | TouchEvent | KeyboardEvent) & { [stopSymbol]?: boolean }} e
- */
-function rippleStop(e: any) {
+function rippleStop(e: RippleEvent) {
   e[stopSymbol] = true
 }
 
@@ -387,11 +383,6 @@ function rippleCancelShow (e: MouseEvent | TouchEvent) {
   window.clearTimeout(element._ripple.showTimer)
 }
 
-/**
- *
- * @param {any} value
- * @returns {value is true}
- */
 function isRippleEnabled(value: any) {
   return typeof value === 'undefined' || !!value
 }

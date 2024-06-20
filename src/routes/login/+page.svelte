@@ -1,5 +1,5 @@
 <script>
-  import MButton from '$lib/components/melt-ui/MButton.svelte'
+  import { MButton } from '$src/lib/components/melt-ui'
   import { useToken } from '$src/store/userStore'
   import { goto } from '$app/navigation';
 
@@ -21,12 +21,12 @@
       type="password"
       class="input"
     />
-    <MButton on:click={onLogin}>LOGIN IN</MButton>
+    <MButton on:click={onLogin} className="w-[100%]">LOGIN IN</MButton>
   </form>
 </div>
 
 <style>
   .input {
-    @apply inline-flex h-9 mb-3 w-full items-center justify-center rounded-sm border border-solid px-3 leading-none text-black
+    @apply inline-flex h-9 mb-3 w-full items-center justify-center rounded-sm border border-solid px-3 leading-none text-black;
   }
 </style>

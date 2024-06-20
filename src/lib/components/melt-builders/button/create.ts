@@ -14,23 +14,22 @@ const prefix = 'button'
 const { name } = createElHelpers(prefix)
 
 const defaults = {
-  type: writable('primary'),
+  type: 'primary',
   disabled: false,
 } satisfies Defaults<CreateButtonProps>
 
 export const createButton = (props?: CreateButtonProps) => {
   const withDefaults = { ...defaults, ...props } satisfies CreateButtonProps
 
-  const disabledWritable = writable(withDefaults.disabled) ?? writable(false)
+  const disabledWritable = writable(withDefaults.disabled ?? false)
   const disabled = overridable(disabledWritable)
-
-  console.log(disabled, get(disabledWritable));
 
   const button = makeElement(name(), {
     returned: () =>
 			({
 				role: 'button',
 				type: 'button',
+        disabled: get(disabled)
 			} as const),
   })
   const options = toWritableStores(omit(withDefaults))

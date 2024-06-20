@@ -1,8 +1,7 @@
 import type { createButton } from './create'
 import type { BuilderReturn } from '@melt-ui/svelte/internal/types'
-import type { Writable } from 'svelte/store'
 
-const buttonTypes = ['primary', 'info', 'warning', 'danger'] as const
+export const buttonTypes = ['primary', 'info', 'warning', 'danger', 'success'] as const
 
 export type ButtonTypes = (typeof buttonTypes)[number]
 
@@ -10,7 +9,7 @@ export type CreateButtonProps = {
   /**
    * button types
    */
-  type?: Writable<ButtonTypes>,
+  type?: ButtonTypes,
 
   disabled?: boolean
 }
