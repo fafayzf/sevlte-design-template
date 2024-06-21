@@ -8,9 +8,15 @@ export type ButtonTypes = (typeof buttonTypes)[number]
 export type CreateButtonProps = {
   /**
    * button types
+   *
+	 * @default 'prmairy'
    */
   type?: ButtonTypes,
-
+	/**
+	 * When `true`, prevents the user from interacting with the button.
+	 *
+	 * @default false
+	 */
   disabled?: boolean
 }
 

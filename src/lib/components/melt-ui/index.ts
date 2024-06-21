@@ -1,11 +1,17 @@
-import MButton from './MButton/index.svelte'
+import MAvatar from './MAvatar'
+import MButton from './MButton'
+import MIcon from './MIcon'
 
 const MeltUI = {
-  MButton
+  MAvatar,
+  MButton,
+  MIcon
 }
 
 export {
-  MButton
+  MAvatar,
+  MButton,
+  MIcon
 }
 
 export default MeltUI

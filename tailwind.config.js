@@ -1,5 +1,6 @@
 import plugin from 'tailwindcss/plugin'
 import typography from '@tailwindcss/typography'
+import { addIconSelectors, addDynamicIconSelectors } from '@iconify/tailwind'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -77,6 +78,9 @@ export default {
 
   plugins: [
     typography,
+    // Iconify plugin, requires writing list of icon sets to load
+    addIconSelectors(['mdi', 'mdi-light']),
+    addDynamicIconSelectors(),
     plugin(function ({ addVariant, matchUtilities, theme }) {
       addVariant('hocus', ['&:hover', '&:focus'])
       // Square utility

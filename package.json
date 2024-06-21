@@ -27,6 +27,9 @@
   "license": "MIT",
   "devDependencies": {
     "@fontsource/fira-mono": "^5.0.8",
+    "@iconify-json/mdi": "^1.1.66",
+    "@iconify-json/mdi-light": "^1.1.10",
+    "@iconify/tailwind": "^1.1.1",
     "@melt-ui/pp": "^0.3.2",
     "@melt-ui/svelte": "^0.81.0",
     "@neoconfetti/svelte": "^1.0.0",
@@ -37,6 +40,7 @@
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@tailwindcss/typography": "^0.5.13",
     "@types/cookie": "^0.5.2",
+    "@types/lodash-es": "^4.17.12",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
     "autoprefixer": "^10.4.19",
@@ -54,6 +58,7 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
-    "clsx": "^2.1.1"
+    "clsx": "^2.1.1",
+    "lodash-es": "^4.17.21"
   }
 }

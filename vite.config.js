@@ -7,6 +7,9 @@ export default defineConfig({
     sveltekit(),
     enhancedImages()
   ],
+  css: {
+    postcss: './postcss.config.js'
+  },
 	test: {
 		include: ['src/**/*.{test,spec}.{js,ts}']
 	}
