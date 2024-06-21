@@ -23,4 +23,12 @@ export type MButtonProps = {
    * The loading status, the default is false, if it is a string, it can be set to a custom loading icon
    */
   loading: boolean | string
+  /**
+   * Extended Style Class
+   */
+  className: string | object
+  /**
+   * Icons, icon collection address is https://icon-sets.iconify.design/?keyword=mdi
+   */
+  icon: string
 }

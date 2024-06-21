@@ -4,16 +4,16 @@
   import { createButton } from '$lib/components/melt-builders'
   import { MIcon } from '$lib/components/melt-ui'
   import { ripple, debounce } from '$src/lib/actions'
-  import { type ButtonTypes } from '$lib/components/melt-builders'
+  import { type MButtonProps } from './index.d'
 
   import { clsx } from 'clsx'
 
-  export let type: ButtonTypes = 'primary'
-  export let className = ''
-  export let delay = 300
-  export let icon = ''
-  export let loading = false
-  export let disabled = false
+  export let type: MButtonProps['type'] = 'primary'
+  export let className: MButtonProps['className'] = ''
+  export let delay: MButtonProps['delay'] = 300
+  export let icon: MButtonProps['icon'] = ''
+  export let loading: MButtonProps['loading'] = false
+  export let disabled: MButtonProps['disabled'] = false
 
   const prefix = 'melt-button'
   $: cnames = clsx(prefix, className, `${prefix}-${type}`)

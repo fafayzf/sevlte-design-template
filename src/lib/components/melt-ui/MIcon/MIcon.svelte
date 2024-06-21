@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
   import { clsx } from 'clsx'
+  import { type MIconProps } from './index.d'
 
-  export let icon = ''
-  export let className = ''
+  export let icon: MIconProps['icon'] = ''
+  export let className: MIconProps['className'] = ''
 
   const prefix = 'melt-icon'
 
