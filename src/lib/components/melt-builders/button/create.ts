@@ -6,7 +6,7 @@ import {
   disabledAttr
 } from '@melt-ui/svelte/internal/helpers'
 
-import type { CreateButtonProps } from './type'
+import type { CreateButtonProps } from './types'
 import type { Defaults } from '@melt-ui/svelte/internal/types'
 
 const prefix = 'button'

@@ -9,4 +9,5 @@ export type MIconProps = {
    * Icons, icon collection address is https://icon-sets.iconify.design/?keyword=mdi
    */
   icon: string
+  ripple?: boolean
 }

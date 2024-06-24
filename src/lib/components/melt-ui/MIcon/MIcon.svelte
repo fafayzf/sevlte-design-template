@@ -1,16 +1,19 @@
 <script lang="ts">
   import { clsx } from 'clsx'
+  import { ripple as useRipple } from '$src/lib/actions'
+
   import { type MIconProps } from './index.d'
 
   export let icon: MIconProps['icon'] = ''
   export let className: MIconProps['className'] = ''
+  export let ripple: MIconProps['ripple'] = false
 
   const prefix = 'melt-icon'
 
   $: cnames = clsx(prefix, 'iconify text-2xl', icon, className)
 </script>
 
-<span class={cnames} {...$$restProps}></span>
+<span use:useRipple={ripple} class={cnames} {...$$restProps}></span>
 
 <style>
 .spinner {

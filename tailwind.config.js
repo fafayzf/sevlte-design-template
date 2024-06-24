@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin'
 import typography from '@tailwindcss/typography'
 import { addIconSelectors, addDynamicIconSelectors } from '@iconify/tailwind'
+import colors from 'tailwindcss/colors'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -16,24 +17,11 @@ export default {
     },
     extend: {
       colors: {
-        magnum: {
-          '50': '#fff9ed',
-          '100': '#fef2d6',
-          '200': '#fce0ac',
-          '300': '#f9c978',
-          '400': '#f7b155',
-          '500': '#f38d1c',
-          '600': '#e47312',
-          '700': '#bd5711',
-          '800': '#964516',
-          '900': '#793a15',
-          '950': '#411c09'
-        },
-        primary: '#eab308',
-        success: '#22c55e',
-        danger: '#ef4444',
-        info: '#64748b',
-        warning: '#facc15'
+        primary: colors.yellow['400'],
+        success: colors.green['400'],
+        danger: colors.red['400'],
+        info: colors.slate['400'],
+        warning: colors.orange['400']
       },
       fontFamily: {
         sans: [
