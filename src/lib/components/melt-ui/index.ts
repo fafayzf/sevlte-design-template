@@ -2,7 +2,7 @@ import MAvatar from './MAvatar'
 import MButton from './MButton'
 import MIcon from './MIcon'
 import MInput from './MInput'
-import { MContainer, MRow } from './MGrid'
+import { MContainer, MRow, MCol } from './MGrid'
 
 const MeltUI = {
   MAvatar,
@@ -10,7 +10,8 @@ const MeltUI = {
   MIcon,
   MInput,
   MContainer,
-  MRow
+  MRow,
+  MCol
 }
 
 export {
@@ -19,7 +20,8 @@ export {
   MIcon,
   MInput,
   MContainer,
-  MRow
+  MRow,
+  MCol
 }
 
 export default MeltUI

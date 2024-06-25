@@ -4,16 +4,17 @@
   import type { MRowProps } from './index.d'
 
   export let className: MRowProps['className'] = ''
-  export let gutter: MRowProps['gutter'] = 0
-  export let jusitfy: MRowProps['justify'] = 'start'
-  export let align: MRowProps['align'] = undefined
+  export let gap: MRowProps['gap'] = 0
+  export let cols: MRowProps['cols'] = 12
   export let tag: MRowProps['tag'] = 'div'
 
   const prefix = getPrefixClass('row')
-  $: cnames = clsx(prefix, className, {
-    [`space-x-${gutter}`]: true,
-    [`justify-${jusitfy}`]: true,
-    [`align-${align}`]: true
+  let layoutClass = 'grid'
+
+  $: cnames = clsx(prefix, className, layoutClass, {
+    [`gap-x-${typeof gap === 'number' ? gap : gap.x || 0}`]: true,
+    [`gap-y-${typeof gap === 'number' ? gap : gap.y || 0}`]: true,
+    [`grid-cols-${cols}`]: true
   })
 </script>
 

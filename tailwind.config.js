@@ -3,18 +3,28 @@ import typography from '@tailwindcss/typography'
 import { addIconSelectors, addDynamicIconSelectors } from '@iconify/tailwind'
 import colors from 'tailwindcss/colors'
 
+function generateLen(n) {
+  return Array.from({length: 12}, (_, i) => i + 1).join('|')
+}
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{html,js,svelte,ts}'],
-
-  theme: {
-    container: {
-      center: true,
-      padding: '2rem',
-      screens: {
-        '2xl': '1440px'
-      }
+  safelist: [
+    {
+      pattern: new RegExp(`grid-cols-(none|subgrid|${generateLen(12)})`)
     },
+    {
+      pattern: new RegExp(`col-(span|start|end)-(${generateLen(12)}|auto)`)
+    },
+    {
+      pattern: new RegExp(`gap-(${generateLen(12)})`)
+    },
+    {
+      pattern: new RegExp(`gap-(x|y)-(${generateLen(12)})`)
+    }
+  ],
+  theme: {
     extend: {
       colors: {
         primary: colors.yellow['400'],
@@ -22,45 +32,7 @@ export default {
         danger: colors.red['400'],
         info: colors.slate['400'],
         warning: colors.orange['400']
-      },
-      fontFamily: {
-        sans: [
-          '-apple-system',
-          'BlinkMacSystemFont',
-          'Segoe UI',
-          'Roboto',
-          'Oxygen',
-          'Ubuntu',
-          'Cantarell',
-          'Fira Sans',
-          'Droid Sans',
-          'Helvetica Neue',
-          'Arial',
-          'sans-serif',
-          'Apple Color Emoji',
-          'Segoe UI Emoji',
-          'Segoe UI Symbol'
-        ],
-        mono: [
-          'ui-monospace',
-          'SFMono-Regular',
-          'SF Mono',
-          'Menlo',
-          'Consolas',
-          'Liberation Mono',
-          'monospace'
-        ]
-      },
-      typography: (theme) => ({
-        DEFAULT: {
-          css: {
-            code: {
-              position: 'relative',
-              borderRadius: theme('borderRadius.md')
-            }
-          }
-        }
-      })
+      }
     }
   },
 
