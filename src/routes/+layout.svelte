@@ -20,6 +20,9 @@
     if (!hasToken && currentPath !== '/login') {
       goto('/login')
     }
+    if (currentPath === '/') {
+      goto('/dashboard')
+    }
   })
 
   hasRoutePermission()
