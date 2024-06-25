@@ -4,9 +4,10 @@
   import { createButton } from '$lib/components/melt-builders'
   import { MIcon } from '$lib/components/melt-ui'
   import { ripple, debounce } from '$src/lib/actions'
-  import { type MButtonProps } from './index.d'
-
+  import { getPrefixClass } from '$lib/components/melt-builders/helpers'
   import { clsx } from 'clsx'
+
+  import { type MButtonProps } from './index.d'
 
   export let type: MButtonProps['type'] = 'primary'
   export let className: MButtonProps['className'] = ''
@@ -15,7 +16,7 @@
   export let loading: MButtonProps['loading'] = false
   export let disabled: MButtonProps['disabled'] = false
 
-  const prefix = 'melt-button'
+  const prefix = getPrefixClass('button')
   $: cnames = clsx(prefix, className, `${prefix}-${type}`)
 
   const {

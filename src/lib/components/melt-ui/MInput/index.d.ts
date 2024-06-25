@@ -7,5 +7,6 @@ export type MInputProps = {
   value?: Writable<string | number>,
   className?: string,
   placeholder?: string,
-  clearable?: boolean
+  clearable?: boolean,
+  disabled?: boolean
 }

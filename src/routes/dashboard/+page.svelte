@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { MButton, MInput } from '$src/lib/components/melt-ui'
+  import { MButton, MInput, MContainer } from '$src/lib/components/melt-ui'
   import { useToken } from '$src/store/userStore'
   import { goto } from '$app/navigation'
-  import { writable, get } from 'svelte/store';
+  import { writable, get } from 'svelte/store'
 
   function handleClick() {
     const { token } = useToken()
@@ -22,12 +22,12 @@
   let defaultValue = writable('')
 
   function handleBlur(e: any) {
-    console.log(e);
+    console.log(e)
 
   }
 
   function handleClickButton(e: any) {
-    console.log(e, get(defaultValue));
+    console.log(e)
   }
 
 </script>
@@ -43,12 +43,13 @@
 <MButton type="info" on:click={handleClick}>clear token</MButton>
 
 <h1>input</h1>
-<div>
+<MContainer fluid>
   <MInput
     value={defaultValue}
     on:input={handleInput}
     on:blur={handleBlur}
+    disabled
     clearable
     placeholder="Enter..."
   ></MInput>
-</div>
+</MContainer>

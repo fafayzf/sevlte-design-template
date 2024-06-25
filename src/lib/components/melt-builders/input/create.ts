@@ -10,11 +10,10 @@ import {
   omit,
   overridable,
   kbd,
-  withGet
 } from '@melt-ui/svelte/internal/helpers'
-
+import { eventOverridable } from '$lib/components/melt-builders/helpers'
 import type { CreateInputProps } from './types'
-import { writable, type Stores } from 'svelte/store'
+import { writable } from 'svelte/store'
 import type { Defaults, MeltActionReturn } from '@melt-ui/svelte/internal/types'
 import type { InputEvents } from './event'
 import { focusInput } from './helper'
@@ -42,15 +41,13 @@ export function createInput(props?: CreateInputProps) {
   const { disabled, placeholder } = options
 
   const valueWritable = withDefaults?.value ?? writable(defaults.defaultValue)
-  const value = overridable(valueWritable, withDefaults?.onValueChange)
-
-  const eventType = writable('')
+  const value = eventOverridable(valueWritable, withDefaults?.onValueChange)
 
   const root = makeElement(name(), {
-    stores: [disabled],
-    returned: ([$disabled]) => {
+    stores: [disabled, meltIds.root],
+    returned: ([$disabled, $root]) => {
       return {
-        'data-melt-id': meltIds.root,
+        'data-melt-id': $root,
         'data-disabled': disabledAttr($disabled),
         disabled: disabledAttr($disabled)
       } as const
@@ -97,20 +94,17 @@ export function createInput(props?: CreateInputProps) {
             e.preventDefault()
             const nodeValue = node.value
             if (!nodeValue) return
-            value.set(node.value)
-            eventType.set('keydown')
+            value.set(node.value, 'keydown')
           }
         }),
         addMeltEventListener(node, 'blur', (e) => {
           e.preventDefault()
           const nodeValue = node.value
           if (!nodeValue) return
-          value.set(node.value)
-          eventType.set('blur')
+          value.set(node.value, 'blur')
         }),
         addMeltEventListener(node, 'input', () => {
-          value.set(node.value)
-          eventType.set('input')
+          value.set(node.value, 'input')
         })
       )
 
@@ -133,10 +127,8 @@ export function createInput(props?: CreateInputProps) {
 				if (node.hasAttribute('data-disabled')) return
         const inputEl = document.getElementById(meltIds.input.get()) as HTMLInputElement
         inputEl.value = ''
-        value.set('')
-        console.log(value.get());
+        value.set('', 'clear')
 
-        eventType.set('clear')
 				focusInput(meltIds.input.get())
 			}
 
@@ -161,7 +153,6 @@ export function createInput(props?: CreateInputProps) {
     },
     states: {
       value,
-      eventType
     },
     options
   }

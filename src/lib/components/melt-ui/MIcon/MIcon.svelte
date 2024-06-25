@@ -1,6 +1,7 @@
 <script lang="ts">
   import { clsx } from 'clsx'
   import { ripple as useRipple } from '$src/lib/actions'
+  import { getPrefixClass } from '$lib/components/melt-builders/helpers'
 
   import { type MIconProps } from './index.d'
 
@@ -8,7 +9,7 @@
   export let className: MIconProps['className'] = ''
   export let ripple: MIconProps['ripple'] = false
 
-  const prefix = 'melt-icon'
+  const prefix = getPrefixClass('icon')
 
   $: cnames = clsx(prefix, 'iconify text-2xl', icon, className)
 </script>

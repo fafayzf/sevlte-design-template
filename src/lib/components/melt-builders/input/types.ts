@@ -1,7 +1,7 @@
 import type { Writable } from 'svelte/store'
 import type { createInput } from './create'
 import type { BuilderReturn } from '@melt-ui/svelte/internal/types'
-import type { ChangeFn } from '@melt-ui/svelte/internal/helpers'
+import type { ChangeFn } from '../helpers/eventOverridable'
 
 export type CreateInputProps = {
   value?: Writable<string | number>
@@ -14,7 +14,6 @@ export type CreateInputProps = {
   disabled?: boolean
   placeholder?: string
   onValueChange?: ChangeFn<string | number>
-
 }
 
 export type Input = BuilderReturn<typeof createInput>
