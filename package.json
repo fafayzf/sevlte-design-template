@@ -39,6 +39,7 @@
     "@sveltejs/kit": "^2.5.10",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "@tailwindcss/typography": "^0.5.13",
+    "@types/clone-deep": "^4.0.4",
     "@types/cookie": "^0.5.2",
     "@types/lodash-es": "^4.17.12",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
@@ -58,6 +59,7 @@
     "vitest": "^0.34.5"
   },
   "dependencies": {
+    "clone-deep": "^4.0.1",
     "clsx": "^2.1.1",
     "lodash-es": "^4.17.21"
   }

@@ -8,6 +8,7 @@
   export let span: MColProps['span'] = ''
   export let start: MColProps['start'] = ''
   export let end: MColProps['end'] = ''
+  export let width = ''
 
   const prefix = getPrefixClass('col')
 
@@ -29,11 +30,14 @@
     ...generateColCls('start', start),
     ...generateColCls('end', end),
   })
+
+  $: contentWidth = typeof width === 'boolean' ? `${width}px` : width
 </script>
 
 <svelte:element
   this={tag}
   class={cnames}
+  style:width={contentWidth}
 >
   <slot />
 </svelte:element>

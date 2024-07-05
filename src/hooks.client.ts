@@ -2,7 +2,6 @@ import { beforeNavigate, goto } from '$app/navigation'
 import { getToken } from './utils/auth'
 
 export async function handleError({ error, event }: any) {
-  console.log(error, event);
   return {
     message: 'Error Page',
     errorId: '500'

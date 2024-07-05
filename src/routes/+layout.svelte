@@ -5,8 +5,8 @@
   import { page } from '$app/stores'
   import { get } from 'svelte/store'
   import { useToken } from '$src/store/userStore'
+  import { MContainer } from '$lib/components/melt-ui'
 
-  import Container from '$lib/components/container/Container.svelte'
   import ContainerView from '$lib/components/container/ContainerView.svelte'
 	import './styles.css'
   import '../app.css'
@@ -28,8 +28,8 @@
   hasRoutePermission()
 </script>
 
-<Container>
+<MContainer>
 	<ContainerView>
     <slot />
   </ContainerView>
-</Container>
+</MContainer>

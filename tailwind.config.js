@@ -27,6 +27,7 @@ export default {
   theme: {
     extend: {
       colors: {
+        default: colors.slate['100'],
         primary: colors.yellow['400'],
         success: colors.green['400'],
         danger: colors.red['400'],

@@ -3,8 +3,7 @@
 import { Writable } from "svelte/store"
 
 export type MInputProps = {
-  type?: HTMLInputElement['type'],
-  value?: Writable<string | number>,
+  value?: string | number,
   className?: string,
   placeholder?: string,
   clearable?: boolean,

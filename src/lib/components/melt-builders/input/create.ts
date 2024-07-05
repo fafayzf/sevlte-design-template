@@ -8,8 +8,8 @@ import {
   addMeltEventListener,
   isHTMLElement,
   omit,
-  overridable,
   kbd,
+  effect,
 } from '@melt-ui/svelte/internal/helpers'
 import { eventOverridable } from '$lib/components/melt-builders/helpers'
 import type { CreateInputProps } from './types'
@@ -143,6 +143,10 @@ export function createInput(props?: CreateInputProps) {
         destroy: unsub
       }
     }
+  })
+
+  effect(value, (val) => {
+
   })
 
   return {

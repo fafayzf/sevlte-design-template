@@ -6,7 +6,7 @@ export type MButtonProps = {
   /**
    * button basic type
    */
-  type: ButtonTypes,
+  type?: ButtonTypes,
   /**
    * Button size, default is 'medium'
    */

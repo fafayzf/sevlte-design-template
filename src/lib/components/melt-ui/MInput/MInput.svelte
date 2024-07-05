@@ -4,23 +4,28 @@
   import { createInput, type CreateInputProps } from '$lib/components/melt-builders'
   import { MIcon } from '$lib/components/melt-ui'
   import { clsx } from 'clsx'
-  import { writable } from 'svelte/store'
   import { getPrefixClass } from '$lib/components/melt-builders/helpers'
 
   import type { MInputProps } from './index.d'
+  import { writable } from 'svelte/store';
 
-  export let type: MInputProps['type'] = 'text'
-  export let value: MInputProps['value'] = writable('')
+  export let value: MInputProps['value'] = ''
   export let className: MInputProps['className'] = ''
   export let placeholder: MInputProps['placeholder'] = ''
   export let clearable: MInputProps['clearable'] = false
   export let disabled: MInputProps['disabled'] = false
 
   const prefix = getPrefixClass('input')
-  $: cnames = clsx(prefix, className, 'min-w-[4.5rem] shrink grow basis-0 border-0 text-black outline-none focus:!ring-0 data-[invalid]:text-red-500')
+  $: cnames = clsx(
+    prefix,
+    className,
+    'min-w-[4.5rem] shrink grow basis-0 border-0 text-black outline-none focus:!ring-0 data-[invalid]:text-red-500'
+  )
+
   const dispatch = createEventDispatcher()
 
   const handleChange: CreateInputProps['onValueChange'] = ({ next, event }) => {
+    value = next
     dispatch(event as string, next)
     return next
   }
@@ -28,7 +33,12 @@
   const {
     elements: { root, input, clearTrigger },
     states: { value: inputValue },
-  } = createInput({ disabled, placeholder, value, onValueChange: handleChange })
+  } = createInput({
+    disabled,
+    placeholder,
+    value: writable(value),
+    onValueChange: handleChange
+  })
 
 </script>
 
@@ -40,7 +50,7 @@
   <input
     use:melt={$input}
     class={cnames}
-    type={type}
+    bind:value
     disabled={disabled}
     {...$$restProps}
   />
@@ -58,7 +68,8 @@
 
 
 <style lang="postcss">
-.melt-input-wrapper[data-disabled], .melt-input[data-disabled] {
+.melt-input-wrapper[data-disabled],
+.melt-input[data-disabled] {
   cursor: no-drop;
   opacity: 0.65;
 }

@@ -3,6 +3,7 @@ import MButton from './MButton'
 import MIcon from './MIcon'
 import MInput from './MInput'
 import { MContainer, MRow, MCol } from './MGrid'
+import { MForm, MFormItem } from './MForm'
 
 const MeltUI = {
   MAvatar,
@@ -11,7 +12,9 @@ const MeltUI = {
   MInput,
   MContainer,
   MRow,
-  MCol
+  MCol,
+  MForm,
+  MFormItem
 }
 
 export {
@@ -21,7 +24,9 @@ export {
   MInput,
   MContainer,
   MRow,
-  MCol
+  MCol,
+  MForm,
+  MFormItem
 }
 
 export default MeltUI

@@ -9,7 +9,7 @@
 
   import { type MButtonProps } from './index.d'
 
-  export let type: MButtonProps['type'] = 'primary'
+  export let type: MButtonProps['type'] = 'default'
   export let className: MButtonProps['className'] = ''
   export let delay: MButtonProps['delay'] = 300
   export let icon: MButtonProps['icon'] = ''
@@ -52,6 +52,9 @@
 <style lang="postcss">
 .melt-button {
   @apply inline-flex h-9 items-center justify-center rounded-md px-4 py-2 mt-4 font-medium leading-none text-white shadow-lg hover:opacity-75 border-none;
+}
+.melt-button-default {
+  @apply bg-white text-[#0f172a];
 }
 .melt-button-primary {
   @apply bg-primary;
