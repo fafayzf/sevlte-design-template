@@ -4,7 +4,7 @@
   // @ts-ignore
   let formInstance: MForm = undefined
 
-  const form = {
+  let form = {
     username: '',
     password: ''
   }
@@ -20,12 +20,12 @@
   }
 </script>
 
-<MForm model={form} rules={rules} bind:this={formInstance}>
+<MForm bind:model={form} rules={rules} bind:this={formInstance}>
   <MFormItem label="UserName" field="username">
-    <MInput bind:value={form.username} clearable></MInput>
+    <MInput bind:value={form.username} clearable placeholder="Enter..."></MInput>
   </MFormItem>
   <MFormItem label="Password" field="password">
-    <MInput type="password" bind:value={form.password} clearable></MInput>
+    <MInput type="password" bind:value={form.password} clearable placeholder="Enter..."></MInput>
   </MFormItem>
   <MFormItem>
     <MButton type="primary" className="w-full" on:click={handleReset}>SUBMIT</MButton>

@@ -7,7 +7,6 @@
   import { getPrefixClass } from '$lib/components/melt-builders/helpers'
 
   import type { MInputProps } from './index.d'
-  import { writable } from 'svelte/store';
 
   export let value: MInputProps['value'] = ''
   export let className: MInputProps['className'] = ''
@@ -36,7 +35,7 @@
   } = createInput({
     disabled,
     placeholder,
-    value: writable(value),
+    value,
     onValueChange: handleChange
   })
 

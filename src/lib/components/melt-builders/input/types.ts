@@ -4,7 +4,7 @@ import type { BuilderReturn } from '@melt-ui/svelte/internal/types'
 import type { ChangeFn } from '../helpers/eventOverridable'
 
 export type CreateInputProps = {
-  value?: Writable<string | number>
+  value?: string | number | Writable<string | number>
 	/**
 	 * When `true`, prevents the user from interacting with the input.
 	 *

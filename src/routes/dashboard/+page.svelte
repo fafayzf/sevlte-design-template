@@ -19,7 +19,7 @@
     console.log(e)
   }
 
-  let defaultValue = writable('')
+  let defaultValue = writable('123')
 
   function handleBlur(e: any) {
     console.log(e)
@@ -48,10 +48,9 @@
   <MRow cols={1} className="mt-4">input</MRow>
   <MRow cols={1}>
     <MInput
-      value={defaultValue}
+      value={$defaultValue}
       on:input={handleInput}
       on:blur={handleBlur}
-      disabled
       clearable
       placeholder="Enter..."
     ></MInput>

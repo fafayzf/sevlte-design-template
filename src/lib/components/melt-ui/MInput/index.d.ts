@@ -3,7 +3,7 @@
 import { Writable } from "svelte/store"
 
 export type MInputProps = {
-  value?: string | number,
+  value?: string | number | Writable<string | number>,
   className?: string,
   placeholder?: string,
   clearable?: boolean,

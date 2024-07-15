@@ -1,7 +1,6 @@
 import {
   makeElement,
   createElHelpers,
-  toWritableStores,
   disabledAttr,
   generateIds,
   executeCallbacks,
@@ -9,14 +8,18 @@ import {
   isHTMLElement,
   omit,
   kbd,
-  effect,
 } from '@melt-ui/svelte/internal/helpers'
-import { eventOverridable } from '$lib/components/melt-builders/helpers'
+import { getContext } from 'svelte'
+import {
+  eventOverridable,
+  withValueWritable,
+  toWritableStores
+} from '$lib/components/melt-builders/helpers'
 import type { CreateInputProps } from './types'
-import { writable } from 'svelte/store'
 import type { Defaults, MeltActionReturn } from '@melt-ui/svelte/internal/types'
 import type { InputEvents } from './event'
 import { focusInput } from './helper'
+import { formItemKey } from '$lib/components/melt-builders/form'
 
 
 const prefix = 'input'
@@ -40,8 +43,17 @@ export function createInput(props?: CreateInputProps) {
 
   const { disabled, placeholder } = options
 
-  const valueWritable = withDefaults?.value ?? writable(defaults.defaultValue)
+  const valueWritable = withValueWritable(withDefaults?.value ?? withDefaults.defaultValue)
   const value = eventOverridable(valueWritable, withDefaults?.onValueChange)
+
+  const formItemCtx: any = getContext(formItemKey)
+
+  if (formItemCtx) {
+    formItemCtx.fieldValue.subscribe((val: any) => {
+      value.set(val)
+    })
+  }
+
 
   const root = makeElement(name(), {
     stores: [disabled, meltIds.root],
@@ -143,10 +155,6 @@ export function createInput(props?: CreateInputProps) {
         destroy: unsub
       }
     }
-  })
-
-  effect(value, (val) => {
-
   })
 
   return {
