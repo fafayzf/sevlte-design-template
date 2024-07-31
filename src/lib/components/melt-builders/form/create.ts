@@ -3,7 +3,6 @@ import {
   makeElement,
   disabledAttr,
   omit,
-  withGet,
   effect
 } from '@melt-ui/svelte/internal/helpers'
 
@@ -44,7 +43,6 @@ export function createForm(props?: CreateFormProps) {
     ...options,
     model
   })
-  console.log('formIntance', formInstance);
 
   setContext(formKey, formInstance)
 

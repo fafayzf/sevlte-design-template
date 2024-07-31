@@ -12,6 +12,9 @@ module.exports = {
 		ecmaVersion: 2020,
 		extraFileExtensions: ['.svelte']
 	},
+  rules: {
+    "@typescript-eslint/no-explicit-any": 0
+  },
 	env: {
 		browser: true,
 		es2017: true,
